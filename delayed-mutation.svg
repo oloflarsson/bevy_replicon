@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="864" viewBox="0 0 1200 864"><rect width="1200" height="864" fill="#f8fafc"/>
+<text x="600.0" y="30.0" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">A mutation delayed by priority is lost when the entity gets an insertion or removal on the same tick</text>
+<text x="600.0" y="58.0" font-family="DejaVu Sans" font-size="13.5" font-weight="normal" fill="#334155" text-anchor="middle" dominant-baseline="middle">Client priority 0.5 for the entity: a mutation is written once 0.5 × (ticks since the entity&#x27;s last send) ≥ 1, otherwise delayed.</text>
+<rect x="10" y="84" width="1180" height="372" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="30" y="110.0" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#c0392b" text-anchor="start" dominant-baseline="middle">Before: bevy_replicon master</text>
+<text x="382.0" y="142.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 1</text>
+<text x="610.0" y="142.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 2</text>
+<text x="838.0" y="142.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 3</text>
+<text x="1066.0" y="142.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 4</text>
+<line x1="268" y1="156" x2="1180" y2="156" stroke="#94a3b8" stroke-width="2"/>
+<text x="30" y="196.0" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">Server world</text>
+<text x="30" y="257.9" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">collect_changes</text>
+<text x="30" y="274.1" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">for the client</text>
+<line x1="24" y1="232" x2="1176" y2="232" stroke="#e2e8f0" stroke-width="1"/>
+<text x="30" y="327.9" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">system_tick for the client</text>
+<text x="30" y="344.1" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">(as of tick N)</text>
+<line x1="24" y1="302" x2="1176" y2="302" stroke="#e2e8f0" stroke-width="1"/>
+<text x="30" y="406.0" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">Client world</text>
+<line x1="24" y1="372" x2="1176" y2="372" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="274" y="168" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="188.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">spawn</text>
+<text x="382.0" y="203.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">(BoolComponent(false))</text>
+<rect x="502" y="168" width="216" height="56" rx="7" fill="#e6effa" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="610.0" y="188.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">BoolComponent = true</text>
+<text x="610.0" y="203.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">+ insert TestComponent</text>
+<rect x="730" y="168" width="444" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="952.0" y="196.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">no changes</text>
+<rect x="274" y="238" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="258.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">entity sent</text>
+<text x="382.0" y="273.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">(update message)</text>
+<rect x="502" y="238" width="216" height="56" rx="7" fill="#fff4dc" stroke="#b7791f" stroke-width="1.5"/>
+<text x="610.0" y="251.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool: 0.5 × 1 &lt; 1 → delayed</text>
+<text x="610.0" y="266.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">TestComponent: insertion,</text>
+<text x="610.0" y="281.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">update message</text>
+<rect x="274" y="378" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="406.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = false</text>
+<rect x="502" y="378" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="610.0" y="398.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">TestComponent ✓</text>
+<text x="610.0" y="413.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = false (expected)</text>
+<rect x="730" y="238" width="444" height="56" rx="7" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+<text x="952.0" y="251.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool changed since</text>
+<text x="952.0" y="266.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">system_tick? No.</text>
+<text x="952.0" y="281.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Nothing to send.</text>
+<rect x="274" y="308" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="336.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">tick 1</text>
+<rect x="502" y="308" width="216" height="56" rx="7" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+<text x="610.0" y="328.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">update_ticks: tick 2</text>
+<text x="610.0" y="343.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">passes the delayed change</text>
+<rect x="730" y="308" width="444" height="56" rx="7" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+<text x="952.0" y="336.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">tick 2: the change at tick 2 counts as sent</text>
+<rect x="730" y="378" width="444" height="56" rx="7" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+<text x="952.0" y="398.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = false, and stays false until</text>
+<text x="952.0" y="413.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">BoolComponent changes again ✗</text>
+<rect x="10" y="476" width="1180" height="372" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="30" y="502.0" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#1e7d3c" text-anchor="start" dominant-baseline="middle">After: with this fix</text>
+<text x="382.0" y="534.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 1</text>
+<text x="610.0" y="534.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 2</text>
+<text x="838.0" y="534.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 3</text>
+<text x="1066.0" y="534.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle" dominant-baseline="middle">tick 4</text>
+<line x1="268" y1="548" x2="1180" y2="548" stroke="#94a3b8" stroke-width="2"/>
+<text x="30" y="588.0" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">Server world</text>
+<text x="30" y="649.9" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">collect_changes</text>
+<text x="30" y="666.1" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">for the client</text>
+<line x1="24" y1="624" x2="1176" y2="624" stroke="#e2e8f0" stroke-width="1"/>
+<text x="30" y="719.9" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">system_tick for the client</text>
+<text x="30" y="736.1" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">(as of tick N)</text>
+<line x1="24" y1="694" x2="1176" y2="694" stroke="#e2e8f0" stroke-width="1"/>
+<text x="30" y="798.0" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#475569" text-anchor="start" dominant-baseline="middle">Client world</text>
+<line x1="24" y1="764" x2="1176" y2="764" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="274" y="560" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="580.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">spawn</text>
+<text x="382.0" y="595.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">(BoolComponent(false))</text>
+<rect x="502" y="560" width="216" height="56" rx="7" fill="#e6effa" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="610.0" y="580.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">BoolComponent = true</text>
+<text x="610.0" y="595.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">+ insert TestComponent</text>
+<rect x="730" y="560" width="444" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="952.0" y="588.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">no changes</text>
+<rect x="274" y="630" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="650.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">entity sent</text>
+<text x="382.0" y="665.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">(update message)</text>
+<rect x="502" y="630" width="216" height="56" rx="7" fill="#fff4dc" stroke="#b7791f" stroke-width="1.5"/>
+<text x="610.0" y="643.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool: 0.5 × 1 &lt; 1 → delayed</text>
+<text x="610.0" y="658.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">TestComponent: insertion,</text>
+<text x="610.0" y="673.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">update message</text>
+<rect x="274" y="770" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="798.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = false</text>
+<rect x="502" y="770" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="610.0" y="790.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">TestComponent ✓</text>
+<text x="610.0" y="805.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = false (expected)</text>
+<rect x="730" y="630" width="216" height="56" rx="7" fill="#fff4dc" stroke="#b7791f" stroke-width="1.5"/>
+<text x="838.0" y="650.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool still changed:</text>
+<text x="838.0" y="665.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">0.5 × 1 &lt; 1 → delayed</text>
+<rect x="958" y="630" width="216" height="56" rx="7" fill="#e3f4e8" stroke="#1e7d3c" stroke-width="1.5"/>
+<text x="1066.0" y="643.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">0.5 × 2 ≥ 1 →</text>
+<text x="1066.0" y="658.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">mutation written</text>
+<text x="1066.0" y="673.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">(with TestComponent)</text>
+<rect x="274" y="700" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="382.0" y="728.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">tick 1</text>
+<rect x="502" y="700" width="216" height="56" rx="7" fill="#e3f4e8" stroke="#1e7d3c" stroke-width="1.5"/>
+<text x="610.0" y="720.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">kept at tick 1: a mutation</text>
+<text x="610.0" y="735.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">was delayed this tick</text>
+<rect x="730" y="700" width="216" height="56" rx="7" fill="#e3f4e8" stroke="#1e7d3c" stroke-width="1.5"/>
+<text x="838.0" y="728.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">tick 1</text>
+<rect x="958" y="700" width="216" height="56" rx="7" fill="#e3f4e8" stroke="#1e7d3c" stroke-width="1.5"/>
+<text x="1066.0" y="720.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">tick 4 once the</text>
+<text x="1066.0" y="735.5" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">mutation is acked</text>
+<rect x="730" y="770" width="216" height="56" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="838.0" y="798.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = false</text>
+<rect x="958" y="770" width="216" height="56" rx="7" fill="#e3f4e8" stroke="#1e7d3c" stroke-width="1.5"/>
+<text x="1066.0" y="798.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#1f2933" text-anchor="middle" dominant-baseline="middle">Bool = true ✓</text>
+</svg>
